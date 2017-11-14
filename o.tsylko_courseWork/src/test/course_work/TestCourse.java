@@ -17,10 +17,10 @@ public class TestCourse extends BaseTest {
 
         logger.step(3);
         NewEmailCreationForm newEmail = new NewEmailCreationForm();
-        newEmail.populateEmailFields(Browser.userEmail, "new email creation",Browser.emailBody);
+        newEmail.populateEmailFields(Browser.userEmail, "new email creation", Browser.emailBody);
         newEmail.btSend.click();
 
-        logger.step(4);//Validation of email received
+        logger.step(4);//Validation that email is received
         Folder folder = new Folder();
         if (folder.getLoc()!=null) {
             mailBox.selectItem(MailBox.UserFolders.INBOX);
@@ -100,7 +100,7 @@ public class TestCourse extends BaseTest {
         folder.deleteEmail(folder.isEmailPresent("draft to delete"));
         folder.validEmailNotPresent("test draft to delete");
 
-        System.out.println("Test case: Validation of fields for email addresses");
+        System.out.println("Test case: Validation of email addresses field");
         logger.step(15);
         mailBox.openNewMessageForm();
         NewEmailCreationForm validAddress = new NewEmailCreationForm();
@@ -109,5 +109,14 @@ public class TestCourse extends BaseTest {
         validAddress.assertPopUpErr();
         validAddress.txbAddressField.setText(Browser.userEmail);
         validAddress.btSend.click();
+
+        logger.step(16);//Clean Data
+        mailBox.selectItem(MailBox.UserFolders.INBOX);
+        folder.refreshSectionByFilter(Folder.FilterOptions.NOT_READ);
+        folder.deleteEmail(folder.isEmailPresent("test email addresses"));
+        folder.deleteEmail(folder.isEmailPresent("new email CC"));
+        folder.deleteEmail(folder.isEmailPresent("new email creation"));
+        mailBox.selectItem(MailBox.UserFolders.DELETED);
+        folder.deleteEmail(folder.isEmailPresent("draft creation"));
     }
 }
