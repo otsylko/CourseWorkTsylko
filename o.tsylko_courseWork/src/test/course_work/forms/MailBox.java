@@ -13,10 +13,9 @@ public class MailBox extends BaseForm {
     private String pattern = "//span[contains(text(),'%s')]";
     private String pattern2 = "//div[contains(@class, \"_n_j1 ms-fcl-ns\")]/span[contains(text(), '%s')]";
 
-    public MailBox(){
+    public MailBox() {
         super(By.xpath("//button[contains(@autoid, \"_fce_2\")]"), "Mail box");
     }
-
     public void openNewMessageForm(){
         btCreate.click();
         btNewMessage.click();

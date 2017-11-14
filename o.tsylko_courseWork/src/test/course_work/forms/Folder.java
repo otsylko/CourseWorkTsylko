@@ -10,7 +10,7 @@ import org.testng.Assert;
 public class Folder extends BaseForm {
     private By locForSub = By.xpath("//span[contains(@autoid, \"_lvv_6\")]");
     private String pattern = "//span[contains(text(),'%s')]";
-    private String patternFilt = "//button[contains(@autoid, \"_fce_7\")]//span[contains(text(),'%s')]";
+    private String patternFilter = "//button[contains(@autoid, \"_fce_7\")]//span[contains(text(),'%s')]";
     public Email email = new Email(locForSub, "email");
     public Button btDelete = new Button(By.xpath("//button[contains(@title, \"Удалить\")]"), "Delete button");
     public Label lbFilter = new Label(By.xpath("//button[contains(@autoid, \"_db_s\")]"), "Filter");
@@ -22,7 +22,6 @@ public class Folder extends BaseForm {
         return this.titleLocator;
     }
     public Email isEmailPresent(String subject) {
-        //email = new Email(locForSub, "email");//Вынести в поля класса?
         if (!email.isEmailPresent(pattern, subject)){
             email.waitForIsElementPresent();
         }
@@ -31,7 +30,6 @@ public class Folder extends BaseForm {
         return email;
     }
     public void validEmailNotPresent(String subject) {
-        //email = new Email(locForSub, "email");//Вынести в поля класса?
         Assert.assertTrue(email.isEmailPresent(pattern, subject)==false, "Error: Email is present");
     }
     public void deleteEmail(Email em){
@@ -47,7 +45,7 @@ public class Folder extends BaseForm {
     }
     public void applyFilter(FilterOptions itemName) {
         lbFilter.click();
-        Label option = new Label(By.xpath(String.format(patternFilt, itemName.uniqueLocator)), "Filter");
+        Label option = new Label(By.xpath(String.format(patternFilter, itemName.uniqueLocator)), "Filter");
         option.click();
     }
     public void resetFilter() {
