@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose="1">
+    <test name ="List not Null">
+        <classes>
+            <class name="by.aqa.task_3.TestList"/>
+        </classes>
+    </test>
+    <test name="test Whole Numbers">
+        <parameter name="expressionSum1" value="4.00+4.00"/>
+        <parameter name="resultSum1" value="8.0"/>
+        <parameter name="expressionSum2" value="4.00+5.00"/>
+        <parameter name="resultSum2" value="9.0"/>
+        <parameter name="expressionSum3" value="5.00+4.00"/>
+        <parameter name="resultSum3" value="9.0"/>
+        <parameter name="expressionMult1" value="5.00*5.00"/>
+        <parameter name="resultMult1" value="25.0"/>
+        <parameter name="expressionMult2" value="5.00*6.00"/>
+        <parameter name="resultMult2" value="30.0"/>
+        <parameter name="expressionMult3" value="6.00*5.00"/>
+        <parameter name="resultMult3" value="30.0"/>
+        <parameter name="expressionDiv1" value="7.00/7.00"/>
+        <parameter name="resultDiv1" value="1.0"/>
+        <parameter name="expressionDiv2" value="8.00/4.00"/>
+        <parameter name="resultDiv2" value="2.0"/>
+        <parameter name="expressionDiv3" value="3.00/1.00"/>
+        <parameter name="resultDiv3" value="3.0"/>
+        <parameter name="expressionDiv4" value="3.00/5.00"/>
+        <parameter name="resultDiv4" value="0.6"/>
+        <classes>
+            <class name="by.aqa.task_3.TestWholeNumbsUnit1"/>
+        </classes>
+    </test>
+    <test name="test Fractional Numbers">
+        <parameter name="expressionFrSum" value="4.10+5.20"/>
+        <parameter name="resultFrSum" value="9.3"/>
+        <parameter name="expressionFrSub" value="5.50-5.20"/>
+        <parameter name="resultFrSub" value="0.3"/>
+        <parameter name="expressionFrMul" value="5.50*5.20"/>
+        <parameter name="resultFrMul" value="28.6"/>
+        <parameter name="expressionFrDiv" value="5.50/5.20"/>
+        <parameter name="resultFrDiv" value="1.058"/>
+        <classes>
+            <class name="by.aqa.task_3.TestFractNumbsUnit2"/>
+        </classes>
+    </test>
+    <test name="test Negative Numbers">
+        <parameter name="expressionNeg" value="-4.00-5.00"/>
+        <parameter name="resultNeg" value="-9.0"/>
+        <parameter name="expressionNegN" value="4.00+-5.00"/>
+        <parameter name="resultNegN" value="-1.0"/>
+        <parameter name="expressionNeg0" value="-4.00+5.00"/>
+        <parameter name="resultNeg0" value="1.0"/>
+        <parameter name="expressionNeg1" value="-4.00+-5.00"/>
+        <parameter name="resultNeg1" value="-9.0"/>
+        <parameter name="expressionNeg2" value="-4.00--5.00"/>
+        <parameter name="resultNeg2" value="1.0"/>
+        <parameter name="expressionNegN2" value="4.00--5.00"/>
+        <parameter name="resultNegN2" value="9.0"/>
+        <parameter name="expressionNeg3" value="-4.00*5.00"/>
+        <parameter name="resultNeg3" value="-20.0"/>
+        <parameter name="expressionNeg4" value="-4.00*-5.00"/>
+        <parameter name="resultNeg4" value="20.0"/>
+        <parameter name="expressionNeg5" value="-6.00/3.00"/>
+        <parameter name="resultNeg5" value="-2.0"/>
+        <parameter name="expressionNeg6" value="-6.00/-3.00"/>
+        <parameter name="resultNeg6" value="2.0"/>
+        <parameter name="expressionNeg7" value="6.00*-3.00"/>
+        <parameter name="resultNeg7" value="-18.0"/>
+        <parameter name="expressionNeg8" value="6.00/-3.00"/>
+        <parameter name="resultNeg8" value="-2.0"/>
+        <classes>
+            <class name="by.aqa.task_3.TestNegativeNumbsUnit3"/>
+        </classes>
+    </test>
+    <test name="test Correct Format">
+        <parameter name="expressionInct" value="4.00++5.00"/>
+        <parameter name="value" value="0.0"/>
+        <parameter name="expressionInct0" value="4.00-+5.00"/>
+        <parameter name="value0" value="0.0"/>
+        <parameter name="expressionInct1" value="--4.00-5.00"/>
+        <parameter name="value1" value="0.0"/>
+        <parameter name="expressionInct2" value="b+5.00"/>
+        <parameter name="value2" value="0.0"/>
+        <parameter name="expressionInct3" value="4.0+5.00"/>
+        <parameter name="value3" value="0.0"/>
+        <classes>
+            <class name="by.aqa.task_3.TestCorrectFormatUnit5"/>
+        </classes>
+    </test>
+    <test name="test Round">
+        <classes>
+            <class name="by.aqa.task_3.TestRoundOfNumbUnit4"/>
+        </classes>
+    </test>
+    <test name="test Zero validation">
+        <parameter name="expressionZeroMult" value="0.00*5.00"/>
+        <parameter name="resZero1" value="0.0"/>
+        <parameter name="expressionZeroDivZero" value="0.00/9.00"/>
+        <parameter name="resZero2" value="0.0"/>
+        <parameter name="expressionZeroDivOnZero" value="5.00/0.00"/>
+        <parameter name="resZero3" value="0.0"/>
+        <classes>
+            <class name="by.aqa.task_3.TestZeroUnit6"/>
+        </classes>
+        </test>
+</suite>
+
