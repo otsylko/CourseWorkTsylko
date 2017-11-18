@@ -87,7 +87,7 @@ public abstract class BrowserFactory {
 			profile.setPreference("browser.helperApps.neverAsk.saveToDisk",
 					"application/octet-stream;");
 			profile.setPreference("browser.download.manager.showWhenStarting", false );
-			profile.setPreference("browser.privatebrowsing.autostart", true);
+			//profile.setPreference("browser.privatebrowsing.autostart", true);
 			profile.setPreference("intl.accept_languages",Browser.language);
 			if (Browser.language.equals("ru")){
 				propResMang = new PropertiesResourceManager("localization/loc_ru.properties");

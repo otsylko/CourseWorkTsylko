@@ -2,9 +2,39 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="My Course Work" verbose="1">
 
-    <test name="Functional Test" preserve-order="true">
+    <test name="Validation of Email Creation form: To address field" preserve-order="true">
         <classes>
-            <class name="course_work.TestCourse"/>
+            <class name="course_work.EmailCreationToValidation"/>
+        </classes>
+    </test>
+    <test name="Validation of Email Creation form: Cc address field" preserve-order="true">
+        <classes>
+            <class name="course_work.EmailCreationCcValidation"/>
+        </classes>
+    </test>
+    <test name="Validation of Cancel option" preserve-order="true">
+        <classes>
+            <class name="course_work.CancelOptionValidation"/>
+        </classes>
+    </test>
+    <test name="Validation of Email address field" preserve-order="true">
+        <classes>
+            <class name="course_work.EmailAddressValidation"/>
+        </classes>
+    </test>
+    <test name="Validation of Draft functionality" preserve-order="true">
+        <classes>
+            <class name="course_work.DraftValidation"/>
+        </classes>
+    </test>
+    <test name="Validation of Delete Option: existing Email" preserve-order="true">
+        <classes>
+            <class name="course_work.DeleteEmailValidation"/>
+        </classes>
+    </test>
+    <test name="Validation of Delete Option: existing Draft" preserve-order="true">
+        <classes>
+            <class name="course_work.DeleteDraftValidation"/>
         </classes>
     </test>
 </suite>
