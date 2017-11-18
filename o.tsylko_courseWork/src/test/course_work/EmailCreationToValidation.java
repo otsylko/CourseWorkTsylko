@@ -44,25 +44,5 @@ public class EmailCreationToValidation extends BaseTest {
         folder.deleteEmail(folder.isEmailPresent("new email creation"));
         mailBox.selectItem(MailBox.UserFolders.DELETED);
         folder.deleteEmail(folder.isEmailPresent("new email creation"));
-
-
-        /*logger.step(10);
-        logger.info("Clean Data");
-        mailBox.selectItem(MailBox.UserFolders.INBOX);
-        folder.refreshSectionByFilter(Folder.FilterOptions.NOT_READ);
-        folder.deleteEmail(folder.isEmailPresent("new email creation"));
-        folder.deleteEmail(folder.isEmailPresent("test email address"));
-        folder.deleteEmail(folder.isEmailPresent("new email CC"));
-
-        mailBox.selectItem(MailBox.UserFolders.SENT);
-        folder.deleteEmail(folder.isEmailPresent("new email creation"));
-        folder.deleteEmail(folder.isEmailPresent("test email address"));
-        folder.deleteEmail(folder.isEmailPresent("new email CC"));
-
-        mailBox.selectItem(MailBox.UserFolders.DELETED);
-        folder.refreshSectionByFilter(Folder.FilterOptions.NOT_READ);
-        folder.deleteEmail(folder.isEmailPresent("new email creation"));
-        folder.deleteEmail(folder.isEmailPresent("test email address"));
-        folder.deleteEmail(folder.isEmailPresent("new email CC"));*/
     }
 }

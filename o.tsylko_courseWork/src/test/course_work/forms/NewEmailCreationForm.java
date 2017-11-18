@@ -20,17 +20,12 @@ public class NewEmailCreationForm extends BaseForm {
     public Button btCancelConf = new Button(By.xpath("//div[contains(@class, \"listview\")]//span[contains(text(), 'Отменить')]"), "Confirm Cancel button");
     public Button btAdditionAction = new Button(By.xpath("//button[contains(@class, \"_mcp_72 o365button\")]//span[contains(@class, \"_fc_3 owaimg ms-Icon--chevronDown ms-icon-font-size-21 ms-fcl-ns-b\")]"), "Additional Actions button");
     private String pattern = "//div[contains(@class, \"_fce_R ms-fwt-r ms-bgc-w\")]//span[contains(text(),'%s')]";
-    public Label lbError = new Label(By.xpath("//span[contains(@class, \"_db_z\")]"), "error message");
     public NewEmailCreationForm() {
         super(By.xpath("//div[contains(@class, \"_fce_e\")]"), "New Email creation page");
     }
     public void assertPopUpErr() {
         ppMessErr.waitForIsElementPresent();
         Assert.assertTrue(ppMessErr.isPresent());
-    }
-    public void assertErrMess() {
-        lbError.waitForIsElementPresent();
-        Assert.assertTrue(lbError.isPresent());
     }
     public void assertPopUpConf() {
         ppMessConf.waitForIsElementPresent();
