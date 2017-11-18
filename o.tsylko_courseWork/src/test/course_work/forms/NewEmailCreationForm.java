@@ -17,16 +17,20 @@ public class NewEmailCreationForm extends BaseForm {
     private PopUp ppMessErr = new PopUp(By.xpath("//span[contains(text(), 'Совпадения не найдены.')]"), "PopUp notification");
     private PopUp ppMessConf = new PopUp(By.xpath("//span[contains(text(), 'Удалить сообщение')]"), "PopUp notification");
     public Button btCancel = new Button(By.xpath("//div[contains(@class, \"_mcp_H2\")]//button[contains(@aria-label, \"Отменить\")]"), "Cancel button");
-    public Button btCancelConf = new Button(By.xpath("//button[contains(@autoid, \"_db_3\")]"), "Confirm Cancel button");
-    public Button btAdditionAction = new Button(By.xpath("//button[contains(@autoid, \"_mcp_k\")]//span[contains(@class, \"_fc_3 owaimg ms-Icon--chevronDown ms-icon-font-size-21 ms-fcl-ns-b\")]"), "Additional Actions button");
+    public Button btCancelConf = new Button(By.xpath("//div[contains(@class, \"listview\")]//span[contains(text(), 'Отменить')]"), "Confirm Cancel button");
+    public Button btAdditionAction = new Button(By.xpath("//button[contains(@class, \"_mcp_72 o365button\")]//span[contains(@class, \"_fc_3 owaimg ms-Icon--chevronDown ms-icon-font-size-21 ms-fcl-ns-b\")]"), "Additional Actions button");
     private String pattern = "//div[contains(@class, \"_fce_R ms-fwt-r ms-bgc-w\")]//span[contains(text(),'%s')]";
-
+    public Label lbError = new Label(By.xpath("//span[contains(@class, \"_db_z\")]"), "error message");
     public NewEmailCreationForm() {
-        super(By.xpath("//button[contains(@autoid, \"_fce_0\")]"), "New Email creation page");
+        super(By.xpath("//div[contains(@class, \"_fce_e\")]"), "New Email creation page");
     }
     public void assertPopUpErr() {
         ppMessErr.waitForIsElementPresent();
         Assert.assertTrue(ppMessErr.isPresent());
+    }
+    public void assertErrMess() {
+        lbError.waitForIsElementPresent();
+        Assert.assertTrue(lbError.isPresent());
     }
     public void assertPopUpConf() {
         ppMessConf.waitForIsElementPresent();
@@ -47,7 +51,8 @@ public class NewEmailCreationForm extends BaseForm {
         this.txtBodyOfEmail.setText(body);
     }
     public void validBodyOfEmail(String text) {
-        Assert.assertTrue(this.txtBodyOfEmail.getText().equals(text), "Incorrect Body of Email");
+        Assert.assertTrue(txtBodyOfEmail.isPresent());
+        Assert.assertTrue(txtBodyOfEmail.getText().equals(text), "Incorrect Body of Email");
     }
     public void selectItem(AdditionalOptions itemName) {
         Label el = new Label(By.xpath(String.format(pattern, itemName.uniqueLocator)), "Additional option");

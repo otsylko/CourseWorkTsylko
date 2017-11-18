@@ -7,14 +7,14 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 
 public class MailBox extends BaseForm {
-    public Button btCreate = new Button(By.xpath("//button[contains(@autoid, \"_fce_2\")]"), "create email");
+    public Button btCreate = new Button(By.xpath("//button[contains(@title, \"Отобразить больше новых команд\")]"), "create email");
     public Button btNewMessage = new Button(By.xpath("//button[contains(@title, \"Создать новое сообщение (N)\")]"), "New message");
-    public Label lbUserFolders = new Label(By.xpath("//span[contains(@autoid, \"_n_21\")]//span[contains(@class, \"_n_u4 owaimg ms-Icon--chevronDown ms-icon-font-size-14 ms-fcl-ns-b\")]"), "User options");
+    public Label lbUserFolders = new Label(By.xpath("//span[contains(@class, \"_n_v4 treeNodeRowElement\")]//span[contains(@class, \"_n_u4 owaimg ms-Icon--chevronDown ms-icon-font-size-14 ms-fcl-ns-b\")]"), "User options");
     private String pattern = "//span[contains(text(),'%s')]";
     private String pattern2 = "//div[contains(@class, \"_n_j1 ms-fcl-ns\")]/span[contains(text(), '%s')]";
 
     public MailBox() {
-        super(By.xpath("//button[contains(@autoid, \"_fce_2\")]"), "Mail box");
+        super(By.xpath("//div[contains(@class, \"_fce_e ms-bgc-tlr-h\")]"), "Mail box");
     }
     public void openNewMessageForm(){
         btCreate.click();

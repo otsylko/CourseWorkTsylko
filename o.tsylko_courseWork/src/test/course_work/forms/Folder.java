@@ -8,12 +8,12 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 
 public class Folder extends BaseForm {
-    private By locForSub = By.xpath("//span[contains(@autoid, \"_lvv_6\")]");
+    private By locForSub = By.xpath("//span[contains(@class, \"_lvv_T\")]");//span[contains(@autoid, "_lvv_6")]
     private String pattern = "//span[contains(text(),'%s')]";
-    private String patternFilter = "//button[contains(@autoid, \"_fce_7\")]//span[contains(text(),'%s')]";
+    private String patternFilter = "//div[contains(@class, \"_fce_z ms-font-s ms-fwt-sl\")]//span[contains(text(),'%s')]";//button[contains(@autoid, "_fce_7")]
     public Email email = new Email(locForSub, "email");
     public Button btDelete = new Button(By.xpath("//button[contains(@title, \"Удалить\")]"), "Delete button");
-    public Label lbFilter = new Label(By.xpath("//button[contains(@autoid, \"_db_s\")]"), "Filter");
+    public Label lbFilter = new Label(By.xpath("//span[contains(@class, \"_db_p2\")]"), "Filter");//button[contains(@autoid, "_db_s")]
 
     public Folder() {
         super(By.xpath("//div[contains(@class, \"subfolders\")]//span[contains(@autoid, \"_n_21\")]"));
@@ -30,7 +30,7 @@ public class Folder extends BaseForm {
         return email;
     }
     public void validEmailNotPresent(String subject) {
-        Assert.assertTrue(email.isEmailPresent(pattern, subject)==false, "Error: Email is present");
+        Assert.assertFalse(email.isEmailPresent(pattern, subject), "Error: Email is present");
     }
     public void deleteEmail(Email em){
         em.mouseHover(em.getLocator());
@@ -52,12 +52,9 @@ public class Folder extends BaseForm {
         lbFilter.click();
     }
     public void refreshSectionByFilter(FilterOptions itemName) {
-        if (lbFilter.isPresent()){
+        if (lbFilter.isPresent()) {
             applyFilter(itemName);
-            resetFilter();
         }
-        else {
-            resetFilter();
-        }
+        resetFilter();
     }
 }
